@@ -1,0 +1,119 @@
+Linguagem Go - foi criada em 2009
+
+O processo de compilação é bem rapido , o Go é uma linguagem muito poderosa na modularização
+
+A sintaxe tem em torno de 25 palavras chaves , faz com que o codigo fique mais facil de entender
+
+import fmt - O pacote fmt possui funções de impressão no terminal e formatação.
+
+go build nomearquivo.go - Crio o build do programa
+
+go run nomearquivo.go - Ele cria o build e já executa o programa
+
+A função principal de um projeto deve ser chamada de main.
+
+A palavra reservada para função no Go é func
+
+No Go não deixa criarmos uma variavel e deixar sem utilizar , o programa não builda.
+
+:=  - Serve para criar uma variavel exemplo nome := "Bruno"
+
+var comando int
+fmt.Scanf("%d", &comando)  - Capturar o input do usuario
+
+var comando int
+fmt.Scan(&comando) - Ela consegue inferir o tipo digitado pelo usuário, 
+baseado no tipo da variável recebida.
+
+
+------------------------------------------------------------------------------
+No go não precisamos utilizar os parenteses no if e else if colocamos apenas
+as condições e no go o if precisa sempre ser um booleano (true/false)
+if comando == 1 {
+	fmt.Println("Monitorando...")
+} else if comando == 2 {
+	fmt.Println("Exibindo Logs...")
+} else if comando == 0 {
+	fmt.Println("Saindo do Programa...")
+} else {
+	fmt.Println("Não conheço este comando")
+}
+
+No switch case no Go não precisamos colocar o break.
+
+A função Exit fica no pacote os, que deve ser importado. Está função é usada para sair do programa
+com o código de status de sucesso (Usamos 0 para sucesso -1 para quando deu algum
+erro)
+
+Temos o pacote "net/http" que temos funções para realizar requisições Get e Post 
+em comunicação com a Web.
+
+
+Quando queremos ignorar um valor retornado em uma função que retorna valores
+múltiplos, usamos o símbolo _ (underscore)
+
+.Get do pacote http retorna duas coisas a resposta e o erro caso tenha
+Conseguimos ver com base na resposta o .Statuscode para ver qual o status code esta retornando
+
+
+No go não temos o laço While , utilizamos para fazer loop infinito o proprio for
+for {
+
+}
+
+
+----------------------------------------------------------------------------
+
+Arrays em Go
+
+- Arrays em Go tem tamanho fixo.
+- Normalmente em Go não trabalhamos muito com o Array pois ele tem o tamanho fixo,
+trabalhamos com o 
+
+Slices não tem tamanho fixo , é uma abstração do array 
+
+Exemplos de declaração
+
+Array -> var sites [5] string
+
+Slice -> nomes := [] string{"Douglas","Daniel","Bernado"}
+
+A diferença entre eles é que o slice podemos adicionar mais posições durante o 
+programa
+
+Usamos a função len() para descobrirmos o tamanho de uma slice .
+
+Usamos a função cap() para saber a capacidade do slice.
+
+No slice quando é necessario colocar mais elementos do que sua capacidade atual
+o slice dobrea a sua capacidade.
+
+Percorro todo o slice sites pegando a posição e conteudo da posição
+for i, site := range sites {
+	fmt.Println(i, site)	
+}
+
+---------------------------------------------------------------
+
+Arquivos em Go
+
+nil -> Em go nil seria o Null
+
+Podemos utilizar a função os.Open quando queremos abrir um arquivo em Go.
+
+Utilizamos a os.Close para fecharmos o arquivo antes de encerrar.
+
+
+A função os.OpenFile é mais poderosa que a função os.Open e nos permite configurar
+determinadas flags para configurar como o arquivo será manipulado.Permite a ele a 
+possibilidade de criar o arquivo caso não exista.
+
+A flag os.O_APPEND é essencial quando queremos adicionar textos em um arquivo, 
+em vez de começar sempre escrevendo do começo do mesmo
+
+O Go tem este estilo diferente de formatar o tempo, que pode ser 
+consultado na sua documentação exemplo de Dia/Mes/Ano Hora:Minuto:Segundo
+time.Now().Format("02/01/2006 15:04:05")
+
+WriteString() - Passamos uma string no arquivo que abrimos.
+
